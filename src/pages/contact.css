@@ -1,0 +1,77 @@
+.hide{
+    width: 0; height: 0;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+#contact{
+    padding-top: 80px;
+    height: 80vh;
+}
+
+#contact>h3{
+    width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 80px;
+}
+
+#contact>form{
+    /* background-color: red; */
+
+    background-color: #333;
+}
+
+#contact>form>fieldset{
+    width: 1440px;
+    margin: 0 auto;
+    /* background-color: rgb(53, 53, 53); */
+}
+#contact>form>fieldset>ul{
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#contact>form>fieldset>ul>li{
+    width: 70%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    font-size: 30px;
+}
+#contact>form>fieldset>ul>li>label{
+    width: 30%;
+    text-align: end;
+    color: #fff;
+}
+#contact>form>fieldset>ul>li>input{
+    width: 60%;
+    line-height: 50px;
+    font-size: 30px;
+    text-indent: 20px;
+}
+#contact>form>fieldset>p{
+    /* background-color: pink; */
+    text-align: center;
+    margin-bottom: 40px;
+}
+#contact>form>fieldset>p>input{
+    width: 70%;
+    font-size: 30px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+}

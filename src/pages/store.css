@@ -1,0 +1,136 @@
+.store{
+    padding-top: 80px;
+}
+.store>h3{
+    width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+article{}
+.store>div{
+    /* background-color: red; */
+    width: 1440px;
+    margin: 0 auto 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.store>div>dl{
+    width: 25%;
+    text-align: center;
+}
+.store>div>dl>dt{
+    font-size: 30px;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.store>div>dl>dd{
+    padding: 0 20%;
+    display: none;
+}
+.store>div:hover>dl>dd{
+    display: block;
+    border-top: 3px double #999;
+    padding-top: 10px;
+}
+.store>div>dl>dd>dl{
+    /* width: 50%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.store>div>dl>dd>dl>dd{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px;
+    font-size: 18px;
+    border-bottom: 1px dotted #ccc;
+}
+.store>div>dl>dd>dl>dd>label{
+    /* font-weight: bold; */
+}
+.store>div>dl:last-child>dd{
+    padding: 0 10%;
+}
+
+/* 상품목록 */
+
+.store>section{
+    /* background-color: green; */
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.store>section>figure{
+    position: relative;
+    margin-bottom: 40px;
+}
+.store>section>figure>img{
+    /* height: 70%;
+    width: 100%; */
+}
+article>section>figure>figcaption{
+    background-color: rgba(255, 250, 250, 0.8);
+    position: absolute;
+    left: 0; top: 60%;
+    width: 100%;
+    height: 40%;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.storeList>figure>figcaption>dl{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.storeList>figure>figcaption>dl>dt{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.storeList>figure>figcaption>dl>dd{
+    /* background-color: red; */
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.storeList>figure>figcaption>dl>dd>dl{
+    /* background-color: green; */
+    text-align: center;
+}
+.storeList>figure>figcaption>dl>dd>dl>dt{
+    margin-bottom: 10px;
+    padding: 10px 0;
+    font-size: 20px;
+    border-bottom: 1px dotted #ccc;
+    font-weight: bold;
+}
+.storeList>figure>figcaption>dl>dd>dl>dd{
+    font-size: 18px;
+    font-style: italic;
+}
+.storeList>figure>figcaption>p{
+    width: 100%;
+    text-align: center;
+    /* background-color: red; */
+}
+.storeList>figure>figcaption>p>button{
+    background-color: rgba(163, 163, 163, 0.527);
+    border: none;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
