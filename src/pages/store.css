@@ -15,7 +15,7 @@ article{}
 .store>div{
     /* background-color: red; */
     width: 1440px;
-    margin: 0 auto 40px;
+    margin: 0 auto 80px;
     display: flex;
     justify-content: space-between;
 }
@@ -32,13 +32,14 @@ article{}
 
 .store>div>dl>dd{
     padding: 0 20%;
-    display: none;
-}
-.store>div:hover>dl>dd{
-    display: block;
+    
     border-top: 3px double #999;
     padding-top: 10px;
+    /* display: none; */
 }
+/* .store>div:hover>dl>dd{
+    display: block;
+} */
 .store>div>dl>dd>dl{
     /* width: 50%; */
     display: flex;

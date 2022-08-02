@@ -8,7 +8,7 @@
 
 #contact{
     padding-top: 80px;
-    height: 80vh;
+    /* height: 80vh; */
 }
 
 #contact>h3{
@@ -25,6 +25,8 @@
     /* background-color: red; */
 
     background-color: #333;
+    background: linear-gradient(rgb(231, 231, 231),rgb(255, 255, 255));
+    margin-bottom: 80px;
 }
 
 #contact>form>fieldset{
@@ -52,7 +54,9 @@
 #contact>form>fieldset>ul>li>label{
     width: 30%;
     text-align: end;
-    color: #fff;
+    color: #333;
+    font-weight: bold;
+    font-style: italic;
 }
 #contact>form>fieldset>ul>li>input{
     width: 60%;

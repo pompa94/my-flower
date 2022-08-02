@@ -1,19 +1,51 @@
-import React from "react";
+import React, { useState,useCallback,useEffect } from "react";
 
 import "./store.css"
 
 
-function Store(){
+
+function AddList({itemData}){
     return(
         <>
-        <article className="store">
-            <h3>our store</h3>
+            <figure>
+                <img src={itemData.image} alt={itemData.title} />
+                    <figcaption>
+                        <dl>
+                            <dt>{itemData.title}</dt>
+                            <dd>
+                                <dl>
+                                    <dt>color</dt>
+                                    <dd>{itemData.color}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>type</dt>
+                                    <dd>{itemData.type}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>price</dt>
+                                    <dd>{itemData.price}원</dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                        <p>
+                            <button>상세보기</button>
+                        </p>
+                    </figcaption>
+            </figure>
+        </>
+    )
+}
+
+
+
+function AddFilter({onColorChange,onTypeChange}){
+    return(
             <div>
                 <dl>
                     <dt>All flower</dt>
                     <dd>
                         <label>All</label>
-                        <input type="checkbox" name="all" value="all"/>
+                        <input type="checkbox" name="all" defaultValue="all"/>
                     </dd>
                 </dl>
                 <dl>
@@ -22,31 +54,31 @@ function Store(){
                         <dl>
                             <dd>
                                 <label>red</label>
-                                <input type="checkbox" name="color" value="red"/>
+                                <input type="checkbox" name="color" defaultValue="red"
+                                onChange={
+                                    (e)=>{onColorChange(e.target.value)}
+                                }/>
                             </dd>
                             <dd>
                                 <label>pink</label>
-                                <input type="checkbox" name="color" value="pink"/>
-                            </dd>
-                            <dd>
-                                <label>yellow</label>
-                                <input type="checkbox" name="color" value="yellow"/>
+                                <input type="checkbox" name="color" defaultValue="pink"
+                                onChange={
+                                    (e)=>{onColorChange(e.target.value)}
+                                }/>
                             </dd>
                             <dd>
                                 <label>green</label>
-                                <input type="checkbox" name="color" value="green"/>
+                                <input type="checkbox" name="color" defaultValue="green"
+                                onChange={
+                                    (e)=>{onColorChange(e.target.value)}
+                                }/>
                             </dd>
                             <dd>
                                 <label>white</label>
-                                <input type="checkbox" name="color" value="white"/>
-                            </dd>
-                            <dd>
-                                <label>purple</label>
-                                <input type="checkbox" name="color" value="purple"/>
-                            </dd>
-                            <dd>
-                                <label>orange</label>
-                                <input type="checkbox" name="color" value="orange"/>
+                                <input type="checkbox" name="color" defaultValue="white"
+                                onChange={
+                                    (e)=>{onColorChange(e.target.value)}
+                                }/>
                             </dd>
                         </dl>
                     </dd>
@@ -57,15 +89,24 @@ function Store(){
                         <dl>
                             <dd>
                                 <label>flower</label>
-                                <input type="checkbox" name="type" value="flower" />
+                                <input type="checkbox" name="type" defaultValue="flower"
+                                onChange={
+                                    (e)=>{onTypeChange(e.target.value)}
+                                }/>
                             </dd>
                             <dd>
                                 <label>herb</label>
-                                <input type="checkbox" name="type" value="herb" />
+                                <input type="checkbox" name="type" defaultValue="herb"
+                                onChange={
+                                    (e)=>{onTypeChange(e.target.value)}
+                                }/>
                             </dd>
                             <dd>
                                 <label>cactus</label>
-                                <input type="checkbox" name="type" value="cactus" />
+                                <input type="checkbox" name="type" defaultValue="cactus"
+                                onChange={
+                                    (e)=>{onTypeChange(e.target.value)}
+                                }/>
                             </dd>
                         </dl>
                     </dd>
@@ -90,8 +131,64 @@ function Store(){
                     </dd>
                 </dl>
             </div>
+    )
+}
+
+
+
+
+function Store(){
+
+    const [list,setList] = useState([])
+
+    const [original,setOriginal] = useState()
+
+    const fetchData = useCallback(
+        ()=>{
+          /* fetch 안에 결로 입력 index.html의 위치에서 찾아가야됨 */
+          fetch('./data.json')
+          .then(response => response.json())
+          .then(data => 
+            {setList(data),
+            setOriginal(data)})
+        },[]
+      )
+    
+      
+    
+      // useEffect
+      useEffect(()=>{fetchData()},[fetchData])
+
+
+    return(
+        <>
+        <article className="store">
+            <h3>our store</h3>
+
+            <AddFilter 
+            onColorChange={myColor=>{
+                const result = original.filter((item)=>item.color === myColor)
+                setList(result)
+            }}
+            onTypeChange={myType=>{
+                const result2 = original.filter((item)=>item.type === myType)
+                setList(result2)
+            }}
+            />
+
             <section className="storeList">
-                <figure>
+                
+                {
+                    list.map(
+                        (itemData)=>(
+                        <AddList 
+                        key={itemData.id}
+                        itemData={itemData}
+                        />
+                        )
+                    )
+                }
+                {/* <figure>
                     <img src="../source/pic01.jpg" alt="제품01" />
                     <figcaption>
                         <dl>
@@ -115,8 +212,8 @@ function Store(){
                             <button>상세보기</button>
                         </p>
                     </figcaption>
-                </figure>
-                <figure>
+                </figure> */}
+                {/* <figure>
                     <img src="../source/pic02.jpg" alt="제품02" />
                     <figcaption>
                         <dl>
@@ -390,7 +487,7 @@ function Store(){
                             <button>상세보기</button>
                         </p>
                     </figcaption>
-                </figure>
+                </figure> */}
             </section>
         </article>
         </>

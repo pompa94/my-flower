@@ -13,16 +13,16 @@ function Contact(){
                     <legend className="hide">contact폼</legend>
                     <ul>
                         <li>
-                            <label htmlFor="userTel">전화번호</label>
-                            <input type="tel" id="userTel" placeholder="Tel" required />
+                            <label htmlFor="userTel">Phone</label>
+                            <input type="tel" id="userTel" placeholder="010-0000-0000" required />
                         </li>
                         <li>
-                            <label htmlFor="userName">이름</label>
-                            <input type="text" id="userName" placeholder="Name" required />
+                            <label htmlFor="userName">Name</label>
+                            <input type="text" id="userName" placeholder="홍길동" required />
                         </li>
                         <li>
-                            <label htmlFor="userEmail">전자우편</label>
-                            <input type="email" id="userEmail" placeholder="Email" required />
+                            <label htmlFor="userEmail">Email</label>
+                            <input type="email" id="userEmail" placeholder="ex) MyFlower01@flower.co.kr" required />
                         </li>
                     </ul>
                     <p>
